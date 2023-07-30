@@ -1,0 +1,11 @@
+<?php
+/*
+Template Name: Wishlist Template
+*/
+
+get_header(); // Подключаем шапку сайта
+
+
+
+get_footer(); // Подключаем подвал сайта
+?>

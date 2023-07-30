@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/*
+Theme Name: Third
+Author: Dmitriy Babenko
+
+*/
+
+.my-custom-class{
+    font-family: "ZenKakuGothicAntique";
+  font-display: swap;
+  src: url("../fonts/ZenKakuGothicAntique-Regular.woff2") format("woff2"), url("../fonts/ZenKakuGothicAntique-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
