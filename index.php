@@ -351,6 +351,7 @@ Template Name: Main page
 <div class="popup popup_gallery">
     <div class="popup__content">
         <div class="popup__body _gallery">
+        <div class="popup__close"></div>
             <?php
             // Получаем контент из записи с нужным ID (в данном примере ID = 123)
             $post_id = 277;
@@ -365,7 +366,7 @@ Template Name: Main page
                     if ($image_url) {
                         ?>
                         <a href=<?php echo esc_url($image_url); ?> class="popup__image">
-                            <img src="<?php echo esc_url($image_url); ?>" alt="" />
+                            <img src="<?php echo esc_url($image_url); ?>" alt="" /></a>
                             <?php
                     }
                 }
