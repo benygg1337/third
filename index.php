@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Home
+Template Name: Main page
 */?>
 
 <?php get_header(); ?>
@@ -351,37 +351,33 @@ Template Name: Home
 <div class="popup popup_gallery">
     <div class="popup__content">
         <div class="popup__body _gallery">
-            <div class="popup__close"></div>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery01.jpg" class="popup__image">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery01.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery05.jpg" class="popup__image">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery05.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery03.jpg" class="popup__image">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery03.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery04.jpg" class="popup__image ">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery04.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery05.jpg" class="popup__image ">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery05.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery01.jpg" class="popup__image ">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery01.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery03.jpg" class="popup__image ">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery03.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery04.jpg" class="popup__image ">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery04.jpg" alt="" />
-            </a>
-            <a href="/<?php bloginfo('template_url'); ?>/assets/img/gallery05.jpg" class="popup__image ">
-                <img src="<?php bloginfo('template_url'); ?>/assets/img/gallery05.jpg" alt="" />
-            </a>
+            <?php
+            // Получаем контент из записи с нужным ID (в данном примере ID = 123)
+            $post_id = 277;
+            $gallery_content = get_post_field('post_content', $post_id);
+
+            // Получаем вложенные медиафайлы (изображения) текущей страницы
+            $attachments = get_attached_media('image', $post_id);
+
+            if ($attachments) {
+                foreach ($attachments as $attachment) {
+                    $image_url = wp_get_attachment_image_src($attachment->ID, 'large')[0];
+                    if ($image_url) {
+                        ?>
+                        <a href=<?php echo esc_url($image_url); ?> class="popup__image">
+                            <img src="<?php echo esc_url($image_url); ?>" alt="" />
+                            <?php
+                    }
+                }
+            } else {
+                echo 'Нет изображений в галерее.'; // Выводим сообщение, если изображения отсутствуют
+            }
+            ?>
         </div>
     </div>
 </div>
+
+
 
 
 <div class="popup popup_video">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php laguage_attributes(); ?>>
+<html <?php language_attributes(); ?>>
  <head>
 	<title>Главная</title>
 	<meta charset="<?php bloginfo('charset'); ?>">
